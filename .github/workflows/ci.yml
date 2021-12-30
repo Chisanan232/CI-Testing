@@ -39,7 +39,6 @@ jobs:
         image: mysql:8.0.27
         env:
           MYSQL_ROOT_PASSWORD: password
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
         ports:
           - 33306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -73,7 +72,7 @@ jobs:
 
       - name: Create database
         run: |
-            mysql -h ${{ env.DB_HOST }} -u ${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} --execute="CREATE DATABASE tw_stock;"
+            mysql -h ${{ env.DB_HOST }} --port 3306 -u ${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} --execute="CREATE DATABASE tw_stock;"
 
       - name: Create table for saving testing data
         run: |
