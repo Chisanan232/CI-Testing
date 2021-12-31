@@ -72,7 +72,7 @@ jobs:
             echo Failed waiting for MySQL && exit 1
 
       - name: Test MySQL connection
-        run: mysql -h ${{ env.DB_HOST }} -u ${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} --execute="show databases;"
+        run: mysql -h ${{ env.DB_HOST }} --port 3306 -u ${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} --execute="show databases;"
 
       - name: Create database
         run: |
