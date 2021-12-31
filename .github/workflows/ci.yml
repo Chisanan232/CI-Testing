@@ -39,7 +39,10 @@ jobs:
 #        image: mysql:8.0.27
         image: mariadb:10.7.1
         env:
-          MYSQL_ROOT_PASSWORD: password
+          MYSQL_PASSWORD: 'password'
+          MYSQL_DATABASE: 'tw_stock'
+          MYSQL_ROOT_HOST: 127.0.0.1
+          MYSQL_ROOT_PASSWORD: 'password'
         ports:
           - 33306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
