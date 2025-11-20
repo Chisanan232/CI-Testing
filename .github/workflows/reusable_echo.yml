@@ -15,6 +15,10 @@ on:
         description: 'Environment'
         required: true
         type: string
+      auto_approve:
+        description: 'Automatically approve execution'
+        required: true
+        type: boolean
 
 jobs:
   echo-inputs:
@@ -25,3 +29,4 @@ jobs:
           echo "message=${{ inputs.message }}"
           echo "dry_run=${{ inputs.dry_run }}"
           echo "environment=${{ inputs.environment }}"
+          echo "auto_approve=${{ inputs.auto_approve }}"

@@ -22,6 +22,11 @@ on:
           - staging
           - prod
         default: dev
+      auto_approve:
+        description: 'Automatically approve execution'
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   call-reusable:
@@ -30,3 +35,4 @@ jobs:
       message: ${{ inputs.message }}
       dry_run: ${{ inputs.dry_run }}
       environment: ${{ inputs.environment }}
+      auto_approve: ${{ inputs.auto_approve }}
