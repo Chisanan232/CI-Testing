@@ -31,7 +31,7 @@ jobs:
   call-reusable:
     uses: ./.github/workflows/reusable_echo.yml
     with:
-      message: ${{ github.event.inputs.message }}
-      dry_run: ${{ github.event.inputs.dry_run }}
-      environment: ${{ github.event.inputs.environment }}
-      auto_approve: ${{ github.event.inputs.auto_approve }}
+      message: ${{ inputs.message }}
+      dry_run: ${{ inputs.dry_run }}
+      environment: ${{ inputs.environment }}
+      auto_approve: ${{ inputs.auto_approve }}
