@@ -1,0 +1,32 @@
+name: Database Migration Apply
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Message to echo'
+        required: true
+        type: string
+        default: 'Hello'
+      dry_run:
+        description: 'Dry run only'
+        required: true
+        type: boolean
+        default: true
+      environment:
+        description: 'Deployment environment'
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+        default: dev
+
+jobs:
+  call-reusable:
+    uses: ./.github/workflows/reusable_echo.yml
+    with:
+      message: ${{ inputs.message }}
+      dry_run: ${{ inputs.dry_run }}
+      environment: ${{ inputs.environment }}

@@ -1,0 +1,27 @@
+name: Reusable Echo Workflow
+
+on:
+  workflow_call:
+    inputs:
+      message:
+        description: 'Message to echo'
+        required: true
+        type: string
+      dry_run:
+        description: 'Dry run only'
+        required: true
+        type: boolean
+      environment:
+        description: 'Environment'
+        required: true
+        type: string
+
+jobs:
+  echo-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo parameters
+        run: |
+          echo "message=${{ inputs.message }}"
+          echo "dry_run=${{ inputs.dry_run }}"
+          echo "environment=${{ inputs.environment }}"
